@@ -8,19 +8,40 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <strong>{{Auth::user()->email}}</strong>
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            @foreach ($posts as $post)
+                            {{$post->id}}. {{$post->title}} - {{$post->user->name}} <br>
+                            @endforeach
                         </div>
-                    @endif
-                      <em>  {{$posts[4]->title}} </em> <br>
-                    @foreach ($posts as $post)
-                        {{$post->id}}. {{$post->title}} <br>
+                        <div class="col-md-6">
+                            @foreach (Auth::user()->posts as $post)
+                            {{$post->id}}. {{$post->title}} - {{$post->user->name}} <br>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header">Logged in user -> first post -> comments</div>
+
+                <div class="card-body">
+
+                    1st Post Title: {{Auth::user()->posts->first()->title}} <br>
+                    {{Auth::user()->posts->first()->content}} <br><br><br>
+                    <strong>Comments:</strong> <br>
+                    @foreach (Auth::user()->posts->first()->comments as $comment)
+
+                    <div class="card card-body">
+                        {{$comment->comment}}  <em>~{{$comment->user_id}}</em>
+                    </div> <br>
+
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
