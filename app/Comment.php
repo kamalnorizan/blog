@@ -15,4 +15,9 @@ class Comment extends Model
     public $incrementing = true;
 
     protected $guarded = ['id'];
+
+    public function post()
+    {
+        return $this->belongsTo('App\Post', 'post_id', 'id');
+    }
 }

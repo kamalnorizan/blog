@@ -25,10 +25,15 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
-        // $posts = Post::where('user_id',Auth::id())->get();
+        // $post = Post::find(1);
+        $post = Post::first();
+        dd($post->comments);
+
         $title = "First view";
+
         // dd($posts->content);
-        // return response()->json($posts);
-        return view('home',compact('posts','title'));
+        return response()->json($posts->first()->comments);
+
+        // return view('home',compact('posts','title'));
     }
 }
