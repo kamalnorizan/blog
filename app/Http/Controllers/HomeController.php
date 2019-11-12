@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Post;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Post::all();
+        // $posts = Post::where('user_id',Auth::id())->get();
+        $title = "First view";
+        // dd($posts->content);
+        // return response()->json($posts);
+        return view('home',compact('posts','title'));
     }
 }
