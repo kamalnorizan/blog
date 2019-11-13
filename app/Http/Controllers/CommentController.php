@@ -15,6 +15,7 @@ class CommentController extends Controller
     public function index()
     {
         //
+        echo 'Index method in CommentController';
     }
 
     /**
@@ -36,6 +37,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        echo 'This is from the store method in Comment Controller';
     }
 
     /**
@@ -81,5 +83,10 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+    }
+
+    public function mynumber($id)
+    {
+        echo "my ID is ".$id;
     }
 }

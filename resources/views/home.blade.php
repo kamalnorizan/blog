@@ -10,18 +10,15 @@
                 <div class="card-body">
 
                     <div class="row">
+
+
                         <div class="col-md-12">
                             @foreach ($posts as $post)
+                            <a href="{{route('comment.mynumber',[$post->id])}}">Comment</a>
                             {{$post->id}}. {{$post->title}} - {{$post->user->name}} <br>
                             @endforeach
                         </div>
-                        {{-- <div class="col-md-6">
-                            @foreach (Auth::user()->posts as $post)
-                            {{$post->id}}. {{$post->title}} - {{$post->user->name}} <br>
-                            @endforeach
-                        </div> --}}
                     </div>
-
                 </div>
             </div>
             <br>
