@@ -24,15 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('user_id',Auth::id())->get();
+        // $posts = Post::where('user_id',Auth::id())->get();
+        $posts = Post::with('comments.user','user')->where('user_id',Auth::id())->get();
         // $post = Post::find(1);
         $post = Post::first();
-        // dd($post->comments);
+        // dd($posts);
 
         $title = "First view";
 
         // dd($posts->content);
-        // return response()->json($posts->first()->comments);
+        // return response()->json($posts);
 
         return view('home',compact('posts','title'));
     }
