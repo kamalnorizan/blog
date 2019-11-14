@@ -32,7 +32,7 @@
                                         {{$role->permissions}}
                                     </td>
                                     <td>
-
+                                    <a href="/user/role-permission/{{$role->id}}" class="btn btn-sm btn-warning">Permission</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -52,7 +52,7 @@
                                 @foreach ($permissions as $permission)
                                 <tr>
                                     <td>
-                                        {{$perrmission->name}}
+                                        {{$permission->name}}
                                     </td>
                                     <td>
 

@@ -42,4 +42,6 @@ Route::get('/post/{post}','PostController@show')->name('post.show');
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('/','UserController@index');
+    Route::get('/role-permission/{role}','UserController@rolepermission');
+    Route::post('/updatepermission/{role}','UserController@updatepermission');
 });

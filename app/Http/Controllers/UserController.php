@@ -13,6 +13,17 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $permissions = Permission::all();
-        return view('users.index',compact('roles','permissions'));
+        return view('users.index', compact('roles', 'permissions'));
+    }
+
+    public function rolepermission(Role $role)
+    {
+        $permissionOption = Permission::pluck('name','name');
+        return view('users.rolepermission', compact('role', 'permissionOption'));
+    }
+
+    public function updatepermission(Request $request, Role $role)
+    {
+        dd($request);
     }
 }
