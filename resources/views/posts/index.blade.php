@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Post <a href="/post/create" class="btn btn-primary btn-sm float-right">New
-                        Post</a></div>
+                <div class="card-header">Post @if(Auth::check())<a href="/post/create" class="btn btn-primary btn-sm float-right">New
+                        Post</a>@endif</div>
 
                 <div class="card-body">
                     <table class="table">
@@ -48,8 +48,11 @@
 
                                     {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy',$post->id]]) !!}
                                         <a href="/post/{{$post->id}}" class="btn btn-info btn-sm">Show</a>
-                                        <a href="{{route('post.edit',[$post->id])}}" class="btn btn-warning btn-sm">Edit</a>
-                                        {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm','onclick'=>'return confirm("Are you sure you want to remove this post?")']) !!}
+                                        @if(Auth::check())
+                                            <a href="{{route('post.edit',[$post->id])}}" class="btn btn-warning btn-sm">Edit</a>
+                                            {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm','onclick'=>'return
+                                            confirm("Are you sure you want to remove this post?")']) !!}
+                                        @endif
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

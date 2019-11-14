@@ -15,8 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('user_id',Auth::id())->get();
-        return view('posts.index',compact('posts'));
+        if (Auth::check()) {
+            $posts = Post::where('user_id', Auth::id())->get();
+        }else{
+            $posts = Post::all();
+        }
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -69,7 +73,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('posts.edit',compact('post'));
+        return view('posts.edit', compact('post'));
     }
 
     /**

@@ -11,8 +11,10 @@
                    {{$post->content}}
                 </div>
             </div>
+
             <br><br>
             <h4>Comments</h4>
+
             @foreach ($post->comments as $comment)
             <br>
             <div class="card">
@@ -22,6 +24,7 @@
             </div>
             @endforeach
         </div>
+
     </div>
 </div>
 @endsection
