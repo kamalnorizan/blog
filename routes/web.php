@@ -36,5 +36,5 @@ Route::get('/comment/{id}','CommentController@paparan')->name('comment.show');
 
 Route::get('/comment/{id}/mynumber', 'CommentController@mynumber')->name('comment.mynumber');
 
-Route::resource('post', 'PostController')->except('delete');
-Route::post('post/delete','PostController@destroy')->name('post.delete');
+Route::resource('post', 'PostController');
+// Route::post('post/delete','PostController@destroy')->name('post.delete');
