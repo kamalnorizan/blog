@@ -47,12 +47,9 @@
                                 <td>
 
 
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy',$post->id], 'onClick'=>'return confirm("Are you sure") ']) !!}
 
                                     <a href="/post/{{$post->id}}" class="btn btn-info btn-sm">Show</a>
                                     <a href="/post/{{$post->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-
-                                    {!! Form::close() !!}
 
                                 </td>
 
