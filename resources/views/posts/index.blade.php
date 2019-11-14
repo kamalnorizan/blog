@@ -46,8 +46,6 @@
                                 </td>
                                 <td>
 
-
-
                                     <a href="/post/{{$post->id}}" class="btn btn-info btn-sm">Show</a>
                                     <a href="/post/{{$post->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
 
