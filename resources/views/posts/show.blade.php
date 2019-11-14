@@ -11,6 +11,16 @@
                    {{$post->content}}
                 </div>
             </div>
+            <br><br>
+            <h4>Comments</h4>
+            @foreach ($post->comments as $comment)
+            <br>
+            <div class="card">
+                <div class="card-body">
+                <p><em>{{$comment->comment}}</em><strong> - {{$comment->user->name}}</strong></p>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -24,7 +24,7 @@
                                 <th>
                                     Created At
                                 </th>
-                                <th>
+                                <th width="270px">
                                     Action(s)
                                 </th>
                             </tr>
@@ -36,7 +36,7 @@
                                     {{$key+1}}
                                 </td>
                                 <td>
-                                    {{$post->title}}
+                                    {{$post->title}} ({{$post->comments->count()}})
                                 </td>
                                 <td>
                                     {{$post->user->name}}
@@ -46,11 +46,12 @@
                                 </td>
                                 <td>
 
-                                    <a href="/post/{{$post->id}}" class="btn btn-info btn-sm">Show</a>
-                                    <a href="/post/{{$post->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy',$post->id]]) !!}
+                                        <a href="/post/{{$post->id}}" class="btn btn-info btn-sm">Show</a>
+                                        <a href="{{route('post.edit',[$post->id])}}" class="btn btn-warning btn-sm">Edit</a>
+                                        {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm','onclick'=>'return confirm("Are you sure you want to remove this post?")']) !!}
+                                    {!! Form::close() !!}
                                 </td>
-
                             </tr>
                             @endforeach
                         </tbody>
