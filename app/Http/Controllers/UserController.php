@@ -50,4 +50,28 @@ class UserController extends Controller
         flash('New Role: '.$request->role.' Created Successfully')->success()->important();
         return back();
     }
+
+    public function assignrolepermission(User $user)
+    {
+        $roles = Role::all();
+        $permissions = Permission::all();
+        return view('users.assignrolepermission', compact('user', 'permissions', 'roles'));
+    }
+
+    public function assignrole(Request $request, User $user)
+    {
+        $user->syncRoles($request->role);
+
+        flash('User roles assigned successfully')->success()->important();
+        return redirect('/user');
+    }
+
+    public function assignpermission(Request $request, User $user)
+    {
+        $user->syncPermissions($request->permission);
+
+        flash('User roles assigned successfully')->success()->important();
+        return redirect('/user');
+    }
+
 }

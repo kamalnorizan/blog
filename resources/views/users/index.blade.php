@@ -9,7 +9,6 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Roles & Permissions</div>
-
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -134,7 +133,7 @@
                                 @endforeach
                             </td>
                             <td>
-
+                            <a href="/user/assignrolepermission/{{$user->id}}" class="btn btn-primary btn-sm">Assign Role / Permission</a>
                             </td>
                         </tr>
                         @endforeach
