@@ -87,7 +87,7 @@
                     {!! Form::open(['method' => 'POST', 'route' => 'user.filter', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group{{ $errors->has('limit') ? ' has-error' : '' }}">
-                            {!! Form::select('limit', ['5'=>'5', '10'=>'10', '50'=>'50', '100'=>'100'], null, ['id' => 'limit', 'class' => '', 'required' => 'required']) !!}
+                            {!! Form::select('limit', ['5'=>'5', '10'=>'10', '50'=>'50', '100'=>'100'], $limit, ['id' => 'limit', 'class' => '', 'required' => 'required']) !!}
                             <small class="text-danger">{{ $errors->first('limit') }}</small>
                             {!! Form::submit("Go", ['class' => 'btn btn-success']) !!}
                         </div>

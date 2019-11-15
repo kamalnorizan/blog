@@ -11,18 +11,25 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
-        $roles = Role::all();
-        $permissions = Permission::all();
-        return view('users.index', compact('roles', 'permissions', 'users'));
+        // $limit = 5;
+        // $users = User::paginate($limit);
+        // $roles = Role::all();
+        // $permissions = Permission::all();
+        // return view('users.index', compact('roles', 'permissions', 'users', 'limit'));
+        return redirect('/user/indexfilter/5');
     }
 
     public function indexfilter(Request $request)
     {
-        $users = User::paginate($request->limit);
+        return redirect('/user/indexfilter/'.$request->limit);
+    }
+
+    public function indexfilterget($limit)
+    {
+        $users = User::paginate($limit);
         $roles = Role::all();
         $permissions = Permission::all();
-        return view('users.index', compact('roles', 'permissions', 'users'));
+        return view('users.index', compact('roles', 'permissions', 'users', 'limit'));
     }
 
     public function rolepermission(Role $role)
