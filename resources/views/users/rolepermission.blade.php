@@ -11,7 +11,7 @@
                    {!! Form::open(['method' => 'POST', 'url' => '/user/updatepermission/'.$role->id, 'class' => 'form-horizontal']) !!}
                         <div class="form-group{{ $errors->has('permission[]') ? ' has-error' : '' }}">
                             {!! Form::label('permission[]', 'Please Select Permission') !!}
-                            {!! Form::select('permission[]',$permissionOption,$role->permissions, ['id' => 'permission', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+                            {!! Form::select('permission[]',$permissionOption,$role->permissions->pluck('name'), ['id' => 'permission', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
                             <small class="text-danger">{{ $errors->first('permission[]') }}</small>
                         </div>
 

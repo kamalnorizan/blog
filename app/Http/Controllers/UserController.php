@@ -24,6 +24,14 @@ class UserController extends Controller
 
     public function updatepermission(Request $request, Role $role)
     {
-        dd($request);
+        $role->syncPermissions($request->permission);
+        return redirect('/user');
+    }
+
+    public function createrole(Request $request)
+    {
+        Role::create(['name'=>$request->role]);
+        flash('New Role: '.$request->role.' Created Successfully')->success()->important();
+        return back();
     }
 }
