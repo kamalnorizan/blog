@@ -45,4 +45,5 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/role-permission/{role}','UserController@rolepermission');
     Route::post('/updatepermission/{role}','UserController@updatepermission');
     Route::post('/createrole','UserController@createrole')->name('role.create');
+    Route::post('/indexfilter', 'UserController@indexfilter')->name('user.filter');
 });
