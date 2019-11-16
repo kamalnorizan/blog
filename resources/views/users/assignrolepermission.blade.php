@@ -12,7 +12,7 @@
 
                        <div class="form-group{{ $errors->has('role[]') ? ' has-error' : '' }}">
                            {!! Form::label('role[]', 'Role') !!}
-                           {!! Form::select('role[]',$roles->pluck('name'), null, ['id' => 'role[]', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+                           {!! Form::select('role[]',$roles->pluck('name','name'), null, ['id' => 'role[]', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
                            <small class="text-danger">{{ $errors->first('role[]') }}</small>
                        </div>
 
@@ -33,7 +33,7 @@
 
                         <div class="form-group{{ $errors->has('permission[]') ? ' has-error' : '' }}">
                             {!! Form::label('permission[]', 'Role') !!}
-                            {!! Form::select('permission[]',$permissions->pluck('name'), null, ['id' => 'permission[]', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+                            {!! Form::select('permission[]',$permissions->pluck('name','name'), null, ['id' => 'permission[]', 'class' => 'form-control', 'required' => 'required', 'multiple']) !!}
                             <small class="text-danger">{{ $errors->first('permission[]') }}</small>
                         </div>
 

@@ -39,8 +39,12 @@
                                         {{-- {{$role->permissions}} --}}
                                     </td>
                                     <td>
+                                        {{-- @role('Admin') --}}
+                                        @can('create post')
                                         <a href="/user/role-permission/{{$role->id}}"
                                             class="btn btn-sm btn-warning">Permission</a>
+                                        @endcan
+                                        {{-- @endrole --}}
                                     </td>
                                 </tr>
                                 @endforeach
